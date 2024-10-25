@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyStyleButton">
+        <item name="android:textSize">20dp</item>
+        <item name="cornerRadius">13dp</item>
+        <item name="backgroundTint">#5C6BC0</item>
+    </style>
+</resources>

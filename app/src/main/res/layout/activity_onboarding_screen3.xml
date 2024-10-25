@@ -5,13 +5,15 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OnboardingScreen3">
+    tools:context=".OnboardingScreen3"
+    style="@style/MyNightStyle">
 
     <Button
         android:id="@+id/Button3"
+        style="@style/MyStyleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Далее3"
+        android:text="@string/Next3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
