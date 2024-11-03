@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AndroidHomework</string>
+    <string name="MyNotes">there should be notes here</string>
+    <string name="Next">NEXT 1</string>
+    <string name="Next2">NEXT 2</string>
+    <string name="Next3">NEXT 3</string>
+    <string name="this_splashscreen">This splashScreen</string>
+    <string name="Password">Password</string>
+    <string name="Login">Login</string>
+    <string name="Registration">Registration</string>
+</resources>
