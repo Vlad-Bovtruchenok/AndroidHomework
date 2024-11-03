@@ -7,6 +7,8 @@
     <string name="Next3">Далее 3</string>
     <string name="this_splashscreen">Это splashScreen</string>
     <string name="Password">Пароль</string>
-    <string name="Login">Вход</string>
+    <string name="Login">Логин</string>
     <string name="Registration">Регистрация</string>
+    <string name="SignIn">Войти</string>
+    <string name="LoginToast">Выполнен вход</string>
 </resources>

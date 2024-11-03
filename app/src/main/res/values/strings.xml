@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">AndroidHomework</string>
     <string name="MyNotes">Здесь должны быть заметки</string>
-    <string name="Next">Далее 1</string>
-    <string name="Next2">Далее 2</string>
-    <string name="Next3">Далее 3</string>
+    <string name="Next">NEXT 1</string>
+    <string name="Next2">NEXT 2</string>
+    <string name="Next3">NEXT 3</string>
     <string name="this_splashscreen">This SplashScreen</string>
-    <string name="Password">Пароль</string>
-    <string name="Login">Вход</string>
-    <string name="Registration">Регистрация</string>
+    <string name="Password">Password</string>
+    <string name="Login">Login</string>
+    <string name="Registration">Registration</string>
+    <string name="SignIn">Sign in</string>
+    <string name="LoginToast">Logged in</string>
 </resources>
