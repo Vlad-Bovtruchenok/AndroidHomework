@@ -11,4 +11,7 @@
     <string name="Registration">Регистрация</string>
     <string name="SignIn">Войти</string>
     <string name="LoginToast">Выполнен вход</string>
+    <string name="title_hint">Заголовок</string>
+    <string name="message_hint">Сообщение</string>
+    <string name="add_note_button_text">Добавить заметку</string>
 </resources>
