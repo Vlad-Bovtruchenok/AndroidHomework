@@ -8,9 +8,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class NoteAdapter (
-    val notes : MutableList<Note>,
-    val onNoteDelete: (Int) -> Unit ) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
+class NoteAdapter(
+    val notes: MutableList<Note>,
+    val onNoteDelete: (Int) -> Unit
+) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
 
     class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val titleTextView: TextView = itemView.findViewById(R.id.noteTitleTextView)
@@ -20,7 +21,8 @@ class NoteAdapter (
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.activity_note_item, parent, false)
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.activity_note_item, parent, false)
         return NoteViewHolder(itemView)
     }
 

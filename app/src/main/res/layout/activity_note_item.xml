@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
+    app:cardBackgroundColor="@color/note_background"
     app:cardCornerRadius="4dp"
     app:cardElevation="2dp"
-    app:cardBackgroundColor="@color/note_background"
     app:strokeColor="@android:color/darker_gray"
     app:strokeWidth="1dp">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -35,9 +34,9 @@
                 android:id="@+id/noteMessageTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:ellipsize="end"
                 android:maxLines="3"
-                android:ellipsize="end" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/noteDateTextView"
@@ -53,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/delete_button"
             android:src="@drawable/baseline_delete_24" />
 
     </LinearLayout>

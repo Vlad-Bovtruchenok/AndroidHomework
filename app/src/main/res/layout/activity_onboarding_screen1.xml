@@ -17,14 +17,13 @@
         app:layout_constraintTop_toBottomOf="@+id/nextButton" />
 
 
-
     <Button
-        style="@style/MyStyleButton"
         android:id="@+id/nextButton"
-        android:theme="@style/MyStyleButton"
+        style="@style/MyStyleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Next"
+        android:theme="@style/MyStyleButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

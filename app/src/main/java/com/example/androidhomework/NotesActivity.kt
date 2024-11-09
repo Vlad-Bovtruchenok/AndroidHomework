@@ -37,15 +37,15 @@ class NotesActivity : AppCompatActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.notesRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = NoteAdapter(notes) {
-            position -> deleteNote(position)
+        adapter = NoteAdapter(notes) { position ->
+            deleteNote(position)
         }
         recyclerView.adapter = adapter
 
         loadNotes()
 
         addButton = findViewById<FloatingActionButton>(R.id.AddFloatingActionButton)
-        addButton.setOnClickListener{
+        addButton.setOnClickListener {
             startActivity(Intent(this, AddNotesActivity::class.java))
         }
     }

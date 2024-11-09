@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 
 class OnboardingScreen3 : AppCompatActivity() {
     private lateinit var startedButton: Button
+
     @SuppressLint("MissingInflatedId", "SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +23,7 @@ class OnboardingScreen3 : AppCompatActivity() {
             insets
         }
         startedButton = findViewById(R.id.Button3)
-            startedButton.setOnClickListener {
+        startedButton.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
         }
     }
