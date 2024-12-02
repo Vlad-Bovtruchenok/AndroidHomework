@@ -2,4 +2,5 @@
 <resources>
     <dimen name="image_size_small">100dp</dimen>
     <dimen name="EditTextWidth">300dp</dimen>
+    <dimen name="note_date_textSize">14sp</dimen>
 </resources>
