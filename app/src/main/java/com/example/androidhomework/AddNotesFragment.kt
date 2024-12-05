@@ -2,29 +2,38 @@ package com.example.androidhomework
 
 import android.content.Context
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import java.text.SimpleDateFormat
 import java.util.Date
-import java.util.Locale
 import java.util.UUID
+import java.util.Locale
 
-
-class AddNotesActivity : AppCompatActivity() {
+class AddNotesFragment : Fragment() {
 
     private lateinit var titleEditText: EditText
     private lateinit var messageEditText: EditText
     private lateinit var addButton: Button
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_notes)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_add_notes, container, false)
+    }
 
-        titleEditText = findViewById(R.id.noteTitleText)
-        messageEditText = findViewById(R.id.noteMessageText)
-        addButton = findViewById(R.id.addNoteButton)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        titleEditText = view.findViewById(R.id.noteTitleText)
+        messageEditText = view.findViewById(R.id.noteMessageText)
+        addButton = view.findViewById(R.id.addNoteButton)
 
         addButton.setOnClickListener {
             handleAddNoteClick()
@@ -38,9 +47,9 @@ class AddNotesActivity : AppCompatActivity() {
         if (validateInput(title, message)) {
             val note = createNote(title, message)
             saveNote(note)
-            finish()
+            findNavController().navigateUp()
         } else {
-            Toast.makeText(this, "Заполните все поля", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Заполните все поля", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -54,7 +63,7 @@ class AddNotesActivity : AppCompatActivity() {
     }
 
     private fun saveNote(note: Note.TextNote) {
-        val sharedPreferences = getSharedPreferences("notes", Context.MODE_PRIVATE)
+        val sharedPreferences = requireContext().getSharedPreferences("notes", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         val noteId = generateUniqueId()
         editor.putString("note_title_$noteId", note.title)
