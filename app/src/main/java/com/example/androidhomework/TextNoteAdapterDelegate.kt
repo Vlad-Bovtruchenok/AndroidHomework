@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.androidhomework.data.model.Note
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 
 class TextNoteAdapterDelegate(private val onNoteDelete: (Int) -> Unit) :

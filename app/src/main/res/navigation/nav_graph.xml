@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashScreenFragment"
-        android:name="com.example.androidhomework.SplashScreenFragment"
+        android:name="com.example.androidhomework.ui.splash.SplashScreenFragment"
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/onboardingScreen1Fragment"
-        android:name="com.example.androidhomework.OnboardingScreen1Fragment"
+        android:name="com.example.androidhomework.ui.onboarding.OnboardingScreen1Fragment"
         android:label="fragment_onboarding_screen1"
         tools:layout="@layout/fragment_onboarding_screen1" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/onboardingScreen2Fragment"
-        android:name="com.example.androidhomework.OnboardingScreen2Fragment"
+        android:name="com.example.androidhomework.ui.onboarding.OnboardingScreen2Fragment"
         android:label="fragment_onboarding_screen2"
         tools:layout="@layout/fragment_onboarding_screen2" >
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/onboardingScreen3Fragment"
-        android:name="com.example.androidhomework.OnboardingScreen3Fragment"
+        android:name="com.example.androidhomework.ui.onboarding.OnboardingScreen3Fragment"
         android:label="fragment_onboarding_screen3"
         tools:layout="@layout/fragment_onboarding_screen3" >
         <action
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.androidhomework.LoginFragment"
+        android:name="com.example.androidhomework.ui.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -56,7 +56,7 @@
     </fragment>
     <fragment
         android:id="@+id/notesFragment"
-        android:name="com.example.androidhomework.NotesFragment"
+        android:name="com.example.androidhomework.ui.notes.NotesFragment"
         android:label="fragment_notes"
         tools:layout="@layout/fragment_notes" >
         <action
@@ -68,12 +68,12 @@
     </fragment>
     <fragment
         android:id="@+id/addNotesFragment"
-        android:name="com.example.androidhomework.AddNotesFragment"
+        android:name="com.example.androidhomework.ui.addnote.AddNotesFragment"
         android:label="fragment_add_notes"
         tools:layout="@layout/fragment_add_notes" />
     <fragment
         android:id="@+id/addImageNoteFragment"
-        android:name="com.example.androidhomework.AddImageNoteFragment"
+        android:name="com.example.androidhomework.ui.addimagenote.AddImageNoteFragment"
         android:label="fragment_add_image_note"
         tools:layout="@layout/fragment_add_image_note" />
     <action

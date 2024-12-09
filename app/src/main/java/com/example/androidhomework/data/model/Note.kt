@@ -1,4 +1,4 @@
-package com.example.androidhomework
+package com.example.androidhomework.data.model
 
 sealed class Note {
     data class TextNote(

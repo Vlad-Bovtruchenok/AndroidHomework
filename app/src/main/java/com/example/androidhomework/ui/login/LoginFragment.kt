@@ -1,4 +1,4 @@
-package com.example.androidhomework
+package com.example.androidhomework.ui.login
 
 import android.os.Bundle
 import android.text.Editable
@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.example.androidhomework.R
 import kotlin.text.isBlank
 import kotlin.text.isNotEmpty
 
