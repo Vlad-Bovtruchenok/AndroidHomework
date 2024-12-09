@@ -15,4 +15,5 @@
     <string name="message_hint">Message</string>
     <string name="add_note_button_text">Add note</string>
     <string name="delete_button">delete note</string>
+    <string name="share_button">Share</string>
 </resources>

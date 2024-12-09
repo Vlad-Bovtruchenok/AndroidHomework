@@ -1,7 +1,14 @@
 package com.example.androidhomework
 
-data class Note(
-    val title: String,
-    val message: String,
-    val date: String
-)
+sealed class Note {
+    data class TextNote(
+        val title: String,
+        val message: String,
+        val date: String
+    ) : Note()
+
+    data class ImageNote(
+        val imagePath: String,
+        val date: String
+    ) : Note()
+}
