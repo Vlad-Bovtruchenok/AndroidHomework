@@ -1,72 +1,60 @@
 package com.example.androidhomework
 
+import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
-class NotesActivity : AppCompatActivity() {
+class NotesFragment : Fragment() {
 
-    private lateinit var addButton: FloatingActionButton
-    private lateinit var addImageButton: FloatingActionButton
     private val notes = mutableListOf<Note>()
     private var adapter: NoteAdapter? = null
     private val noteIds = mutableListOf<String>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_notes)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
-        setupRecyclerView()
-        displayLogin()
-        setupAddNoteButton()
-        loadNotes()
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_notes, container, false)
     }
 
-    private fun displayLogin() {
-        val login = intent.getStringExtra("LOGIN")
-        val loginTextView = findViewById<TextView>(R.id.loginTextView)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        displayLogin(view)
+        setupRecyclerView(view)
+        loadNotes()
+
+    }
+
+    private fun displayLogin(view: View) {
+        val login = arguments?.getString("login")
+        val loginTextView = view.findViewById<TextView>(R.id.loginTextView)
         loginTextView.text = login
     }
 
-    private fun setupRecyclerView() {
-        val recyclerView = findViewById<RecyclerView>(R.id.notesRecyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+    private fun setupRecyclerView(view: View) {
+        val recyclerView = view.findViewById<RecyclerView>(R.id.notesRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
         adapter = NoteAdapter(notes) { position ->
             deleteNote(position)
         }
         recyclerView.adapter = adapter
     }
 
-    private fun setupAddNoteButton() {
-        addImageButton = findViewById<FloatingActionButton>(R.id.AddFloatingActionButtonImage)
-        addButton = findViewById<FloatingActionButton>(R.id.AddFloatingActionButton)
-        addButton.setOnClickListener {
-            startActivity(Intent(this, AddNotesActivity::class.java))
-        }
-        addImageButton.setOnClickListener {
-            startActivity(Intent(this, AddImageNoteActivity::class.java))
-        }
-    }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun loadNotes() {
-        val sharedPreferences = getSharedPreferences("notes", Context.MODE_PRIVATE)
+        val sharedPreferences = requireContext().getSharedPreferences("notes", Context.MODE_PRIVATE)
         val allNotes = mutableMapOf<String, Note>()
         noteIds.clear()
 
@@ -90,6 +78,7 @@ class NotesActivity : AppCompatActivity() {
         notes.clear()
         notes.addAll(allNotes.values)
         adapter?.notifyDataSetChanged()
+
     }
 
     private fun removeTextNote(editor: SharedPreferences.Editor, noteId: String) {
@@ -105,7 +94,7 @@ class NotesActivity : AppCompatActivity() {
 
     private fun deleteNote(position: Int) {
         val noteId = noteIds[position]
-        val sharedPreferences = getSharedPreferences("notes", Context.MODE_PRIVATE)
+        val sharedPreferences = requireContext().getSharedPreferences("notes", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         val note = notes[position]
         when (note) {
@@ -119,7 +108,7 @@ class NotesActivity : AppCompatActivity() {
         noteIds.removeAt(position)
         adapter?.notifyItemRemoved(position)
 
-        Toast.makeText(this, "Заметка удалена", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "Заметка удалена", Toast.LENGTH_SHORT).show()
     }
 
     override fun onResume() {
