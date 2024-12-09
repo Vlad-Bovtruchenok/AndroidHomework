@@ -2,8 +2,13 @@
 <resources>
 
     <style name="MyStyleButton">
-        <item name="android:textSize">20dp</item>
-        <item name="cornerRadius">13dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="cornerRadius">14dp</item>
+        <item name="backgroundTint">#5C6BC0</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="MyStylefloatingActionButton">
         <item name="backgroundTint">#5C6BC0</item>
     </style>
 
