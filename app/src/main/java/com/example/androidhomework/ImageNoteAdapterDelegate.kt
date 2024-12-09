@@ -10,8 +10,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import com.bumptech.glide.Glide
+import com.example.androidhomework.data.model.Note
 
-class ImageNoteAdapterDelegate(private val onNoteDelete: (Int) -> Unit) : AdapterDelegate<List<Note>>() {
+class ImageNoteAdapterDelegate(private val onNoteDelete: (Int) -> Unit) :
+    AdapterDelegate<List<Note>>() {
 
     override fun isForViewType(items: List<Note>, position: Int): Boolean {
         return items[position] is Note.ImageNote
@@ -26,7 +28,8 @@ class ImageNoteAdapterDelegate(private val onNoteDelete: (Int) -> Unit) : Adapte
     override fun onBindViewHolder(
         items: List<Note>,
         position: Int,
-        holder: RecyclerView.ViewHolder, payloads: MutableList<Any>) {
+        holder: RecyclerView.ViewHolder, payloads: MutableList<Any>
+    ) {
         val note = items[position] as Note.ImageNote
         val viewHolder = holder as ImageNoteViewHolder
         viewHolder.bind(note)

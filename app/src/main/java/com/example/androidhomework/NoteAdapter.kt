@@ -2,6 +2,7 @@ package com.example.androidhomework
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.androidhomework.data.model.Note
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegatesManager
 
 
