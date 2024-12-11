@@ -22,7 +22,7 @@ class AddImageNoteFragment : Fragment() {
 
     private var _binding: FragmentAddImageNoteBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: AddImageNoteViewModel
+    private var viewModel: AddImageNoteViewModel? = null
     private var selectedImageUri: Uri? = null
 
     private val pickImageLauncher =
@@ -57,7 +57,7 @@ class AddImageNoteFragment : Fragment() {
 
         binding.addNoteButton.setOnClickListener {
             if (selectedImageUri != null) {
-                viewModel.saveImageNote(selectedImageUri.toString())
+                viewModel!!.saveImageNote(selectedImageUri.toString())
                 findNavController().navigate(R.id.action_global_notesFragment)
             } else {
                 Toast.makeText(requireContext(), "Выберите изображение", Toast.LENGTH_SHORT).show()

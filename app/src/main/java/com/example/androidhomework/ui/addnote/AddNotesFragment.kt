@@ -15,7 +15,7 @@ class AddNotesFragment : Fragment() {
 
     private var _binding: FragmentAddNotesBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: AddNotesViewModel
+    private var viewModel: AddNotesViewModel? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,7 +35,7 @@ class AddNotesFragment : Fragment() {
             val message = binding.noteMessageText.text.toString()
 
             if (title.isNotEmpty() && message.isNotEmpty()) {
-                viewModel.saveNote(title, message)
+                viewModel!!.saveNote(title, message)
                 findNavController().navigate(R.id.action_global_notesFragment)
             }
         }

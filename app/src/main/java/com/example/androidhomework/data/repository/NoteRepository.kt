@@ -21,7 +21,7 @@ class NoteRepository(application: Application) {
         _allNotes.value = loadNotes()
     }
 
-    private fun loadNotes(): List<Note> {
+    fun loadNotes(): List<Note> {
         val notes = mutableListOf<Note>()
         val allEntries = sharedPreferences.all
 

@@ -6,19 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidhomework.NoteAdapter
-import com.example.androidhomework.data.model.Note
+import com.example.androidhomework.mvi.NoteIntent
 import com.example.androidhomework.databinding.FragmentNotesBinding
 import com.example.androidhomework.viewmodel.NotesViewModel
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 class NotesFragment : Fragment() {
-
     private var _binding: FragmentNotesBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: NotesViewModel
+    private var viewModel: NotesViewModel? = null
     private var adapter: NoteAdapter? = null
-    private var notes: MutableList<Note> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,25 +34,23 @@ class NotesFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(NotesViewModel::class.java)
 
-        adapter = NoteAdapter(notes) { position ->
-            deleteNote(position)
-        }
-
         binding.notesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.notesRecyclerView.adapter = adapter
 
-        viewModel.allNotes.observe(viewLifecycleOwner) { newNotes ->
-            notes.clear()
-            notes.addAll(newNotes)
-            adapter?.notifyDataSetChanged()
+        lifecycleScope.launch {
+            viewModel!!.state.collectLatest { state ->
+                adapter = NoteAdapter(state.notes.toMutableList()) { position ->
+                    deleteNote(position)
+                }
+                binding.notesRecyclerView.adapter = adapter
+            }
         }
-
-
     }
 
     private fun deleteNote(position: Int) {
-        val note = notes[position]
-        viewModel.deleteNote(note)
+        val note = adapter?.notes?.get(position)
+        if (note != null) {
+            viewModel?.processIntent(NoteIntent.DeleteNote(note))
+        }
     }
 
     override fun onDestroyView() {

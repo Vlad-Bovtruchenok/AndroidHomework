@@ -17,9 +17,9 @@ import kotlin.text.isNotEmpty
 
 class LoginFragment : Fragment() {
 
-    private lateinit var loginEditText: EditText
-    private lateinit var passwordEditText: EditText
-    private lateinit var loginButton: Button
+    private var loginEditText: EditText? = null
+    private var passwordEditText: EditText? = null
+    private var loginButton: Button? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,23 +35,24 @@ class LoginFragment : Fragment() {
         passwordEditText = view.findViewById(R.id.passwordEditText)
         loginButton = view.findViewById(R.id.loginButton)
 
-        loginButton.isEnabled = false
+        loginButton?.isEnabled = false
 
         val textWatcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             override fun afterTextChanged(s: Editable?) {
-                loginButton.isEnabled =
-                    loginEditText.text.isNotEmpty() && passwordEditText.text.isNotEmpty()
+                loginButton?.isEnabled =
+                    loginEditText?.text?.isNotEmpty() == true &&
+                            passwordEditText?.text?.isNotEmpty() == true
             }
         }
 
-        loginEditText.addTextChangedListener(textWatcher)
-        passwordEditText.addTextChangedListener(textWatcher)
+        loginEditText?.addTextChangedListener(textWatcher)
+        passwordEditText?.addTextChangedListener(textWatcher)
 
-        loginButton.setOnClickListener {
-            val login = loginEditText.text.toString()
-            val password = passwordEditText.text.toString()
+        loginButton?.setOnClickListener {
+            val login = loginEditText?.text.toString()
+            val password = passwordEditText?.text.toString()
 
             if (login.isBlank() || password.isBlank()) {
                 return@setOnClickListener
