@@ -15,4 +15,7 @@
     <string name="add_note_button_text">Add note</string>
     <string name="delete_button">delete note</string>
     <string name="share_button">Share</string>
+    <string name="notes_list">List of notes</string>
+    <string name="add_note">Add note</string>
+    <string name="add_image">Add image</string>
 </resources>

@@ -16,4 +16,7 @@
     <string name="add_note_button_text">Добавить заметку</string>
     <string name="delete_button">удалить заметку</string>
     <string name="share_button">Поделиться</string>
+    <string name="notes_list">Список заметок</string>
+    <string name="add_note">Добавить заметку</string>
+    <string name="add_image">Добавить изображение</string>
 </resources>
