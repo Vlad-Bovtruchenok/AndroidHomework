@@ -1,6 +1,4 @@
-package com.example.androidhomework.mvi
-
-import com.example.androidhomework.data.model.Note
+package com.example.androidhomework.data.model
 
 data class NoteState(
     val notes: List<Note> = emptyList(),

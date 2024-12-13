@@ -1,6 +1,4 @@
-package com.example.androidhomework.mvi
-
-import com.example.androidhomework.data.model.Note
+package com.example.androidhomework.data.model
 
 sealed class NoteIntent {
     data object LoadNotes : NoteIntent()

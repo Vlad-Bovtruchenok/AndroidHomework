@@ -1,5 +1,6 @@
 package com.example.androidhomework.data.model
 
+
 sealed class Note {
     data class TextNote(
         val title: String,

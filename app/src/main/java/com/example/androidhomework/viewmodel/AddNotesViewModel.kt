@@ -6,11 +6,13 @@ import androidx.lifecycle.viewModelScope
 import com.example.androidhomework.data.repository.NoteRepository
 import kotlinx.coroutines.launch
 
-class AddNotesViewModel(application: Application) : AndroidViewModel(application) {
-
-    private val repository: NoteRepository = NoteRepository(application)
+class AddNotesViewModel(
+    application: Application,
+    private val repository: NoteRepository
+) : AndroidViewModel(application) {
 
     fun saveNote(title: String, message: String) = viewModelScope.launch {
         repository.saveTextNote(title, message)
+
     }
 }

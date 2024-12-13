@@ -1,6 +1,7 @@
 package com.example.androidhomework.data.repository
 
-import android.app.Application
+import android.content.SharedPreferences
+
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.androidhomework.data.model.Note
@@ -10,10 +11,8 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.UUID
 
-class NoteRepository(application: Application) {
+class NoteRepository(private val sharedPreferences: SharedPreferences) {
 
-    private val sharedPreferences =
-        application.getSharedPreferences("notes", android.content.Context.MODE_PRIVATE)
     private val _allNotes = MutableLiveData<List<Note>>()
     val allNotes: LiveData<List<Note>> = _allNotes
 

@@ -6,11 +6,13 @@ import androidx.lifecycle.viewModelScope
 import com.example.androidhomework.data.repository.NoteRepository
 import kotlinx.coroutines.launch
 
-class AddImageNoteViewModel(application: Application) : AndroidViewModel(application) {
-
-    private val repository: NoteRepository = NoteRepository(application)
+class AddImageNoteViewModel(
+    application: Application,
+    private val repository: NoteRepository
+) : AndroidViewModel(application) {
 
     fun saveImageNote(imagePath: String) = viewModelScope.launch {
         repository.saveImageNote(imagePath)
+
     }
 }

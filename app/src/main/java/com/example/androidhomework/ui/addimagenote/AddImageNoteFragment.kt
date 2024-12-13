@@ -11,18 +11,18 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.androidhomework.R
 import com.example.androidhomework.databinding.FragmentAddImageNoteBinding
 import com.example.androidhomework.viewmodel.AddImageNoteViewModel
+import org.koin.android.ext.android.inject
 
 class AddImageNoteFragment : Fragment() {
 
     private var _binding: FragmentAddImageNoteBinding? = null
     private val binding get() = _binding!!
-    private var viewModel: AddImageNoteViewModel? = null
+    private val viewModel: AddImageNoteViewModel by inject()
     private var selectedImageUri: Uri? = null
 
     private val pickImageLauncher =
@@ -48,8 +48,6 @@ class AddImageNoteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(AddImageNoteViewModel::class.java)
-
         binding.chooseImageButton.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             pickImageLauncher.launch(intent)
@@ -57,7 +55,7 @@ class AddImageNoteFragment : Fragment() {
 
         binding.addNoteButton.setOnClickListener {
             if (selectedImageUri != null) {
-                viewModel!!.saveImageNote(selectedImageUri.toString())
+                viewModel.saveImageNote(selectedImageUri.toString())
                 findNavController().navigate(R.id.action_global_notesFragment)
             } else {
                 Toast.makeText(requireContext(), "Выберите изображение", Toast.LENGTH_SHORT).show()

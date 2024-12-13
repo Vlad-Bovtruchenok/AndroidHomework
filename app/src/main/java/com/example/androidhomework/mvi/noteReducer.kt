@@ -2,6 +2,8 @@ package com.example.androidhomework.mvi
 
 
 import com.example.androidhomework.data.model.Note
+import com.example.androidhomework.data.model.NoteIntent
+import com.example.androidhomework.data.model.NoteState
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
