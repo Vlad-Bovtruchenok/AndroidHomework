@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.example.androidhomework.ui.splash.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_onboardingScreen1Fragment"
+            app:destination="@id/onboardingScreen1Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingScreen1Fragment"
+        android:name="com.example.androidhomework.ui.onboarding.OnboardingScreen1Fragment"
+        android:label="fragment_onboarding_screen1"
+        tools:layout="@layout/fragment_onboarding_screen1" >
+        <action
+            android:id="@+id/action_onboardingScreen1Fragment_to_onboardingScreen2Fragment"
+            app:destination="@id/onboardingScreen2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingScreen2Fragment"
+        android:name="com.example.androidhomework.ui.onboarding.OnboardingScreen2Fragment"
+        android:label="fragment_onboarding_screen2"
+        tools:layout="@layout/fragment_onboarding_screen2" >
+        <action
+            android:id="@+id/action_onboardingScreen2Fragment_to_onboardingScreen3Fragment"
+            app:destination="@id/onboardingScreen3Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingScreen3Fragment"
+        android:name="com.example.androidhomework.ui.onboarding.OnboardingScreen3Fragment"
+        android:label="fragment_onboarding_screen3"
+        tools:layout="@layout/fragment_onboarding_screen3" >
+        <action
+            android:id="@+id/action_onboardingScreen3Fragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.androidhomework.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_notesFragment"
+            app:destination="@id/notesFragment">
+            <argument
+                android:name="login"
+                app:argType="string" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.example.androidhomework.ui.notes.NotesFragment"
+        android:label="fragment_notes"
+        tools:layout="@layout/fragment_notes" >
+        <action
+            android:id="@+id/action_notesFragment_to_addNotesFragment"
+            app:destination="@id/addNotesFragment" />
+        <action
+            android:id="@+id/action_notesFragment_to_addImageNoteFragment"
+            app:destination="@id/addImageNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNotesFragment"
+        android:name="com.example.androidhomework.ui.addnote.AddNotesFragment"
+        android:label="fragment_add_notes"
+        tools:layout="@layout/fragment_add_notes" />
+    <fragment
+        android:id="@+id/addImageNoteFragment"
+        android:name="com.example.androidhomework.ui.addimagenote.AddImageNoteFragment"
+        android:label="fragment_add_image_note"
+        tools:layout="@layout/fragment_add_image_note" />
+    <action
+        android:id="@+id/action_global_notesFragment"
+        app:destination="@id/notesFragment" />
+    <action
+        android:id="@+id/action_global_addNotesFragment"
+        app:destination="@id/addNotesFragment" />
+    <action
+        android:id="@+id/action_global_addImageNoteFragment"
+        app:destination="@id/addImageNoteFragment" />
+</navigation>

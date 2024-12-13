@@ -2,6 +2,7 @@
 adapterdelegates4 = "4.3.0"
 agp = "8.6.1"
 compiler = "4.15.1"
+koinAndroid = "3.5.3"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -11,23 +12,37 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.9.3"
 constraintlayout = "2.1.4"
+materialVersion = "1.7.0"
 uiTextAndroid = "1.7.5"
+navigationFragment = "2.8.4"
+navigationSafeArgsGradlePlugin = "2.8.4"
+material3Android = "1.3.1"
 
 [libraries]
 adapterdelegates4 = { module = "com.hannesdorfmann:adapterdelegates4", version.ref = "adapterdelegates4" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragment" }
+androidx-navigation-safe-args-gradle-plugin = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "navigationSafeArgsGradlePlugin" }
+androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationFragment" }
 compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "compiler" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "compiler" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
+koin-androidx-viewmodel = { module = "io.insert-koin:koin-androidx-viewmodel", version.ref = "koinAndroid" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinAndroid" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-ui-text-android = { group = "androidx.compose.ui", name = "ui-text-android", version.ref = "uiTextAndroid" }
+androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
+androidx-material3-android = { group = "androidx.compose.material3", name = "material3-android", version.ref = "material3Android" }
+material-v170 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
 
